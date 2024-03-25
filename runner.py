@@ -16,6 +16,8 @@ import datetime
 import argparse
 
 # python tester.py -w /home/gabriel/raisim_ws/raisimLib/raisimGymTorch/data/anymal_locomotion/2024-02-19-13-27-44/full_600.pt
+# open the program /home/gabriel/raisim_ws/raisimLib/raisimUnity/linux/raisimUnity.x86_64
+
 
 # task specification
 task_name = "anymal_locomotion"
