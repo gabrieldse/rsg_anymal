@@ -62,10 +62,10 @@ class ENVIRONMENT : public RaisimGymEnv {
     rewards_.initializeFromConfigurationFile (cfg["reward"]);
 
     /// indices of links that should not make contact with ground
-    footIndices_.insert(anymal_->getBodyIdx("LF_SHANK"));
-    footIndices_.insert(anymal_->getBodyIdx("RF_SHANK"));
-    footIndices_.insert(anymal_->getBodyIdx("LH_SHANK"));
-    footIndices_.insert(anymal_->getBodyIdx("RH_SHANK"));
+    footIndices_.insert(anymal_->getBodyIdx("FL_calf"));
+    footIndices_.insert(anymal_->getBodyIdx("FR_calf"));
+    footIndices_.insert(anymal_->getBodyIdx("RL_calf"));
+    footIndices_.insert(anymal_->getBodyIdx("RR_calf"));
 
     /// visualize if it is the first environment
     if (visualizable_) {

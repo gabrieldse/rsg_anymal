@@ -16,6 +16,7 @@ import datetime
 import argparse
 
 # python tester.py -w /home/gabriel/raisim_ws/raisimLib/raisimGymTorch/data/anymal_locomotion/2024-02-19-13-27-44/full_600.pt
+# python raisimGymTorch/env/envs/rsg_anymal/tester.py -w /home/gabriel/raisim_ws/raisimLib/raisimGymTorch/data/anymal_locomotion/2024-03-25-16-17-37/full_2100.pt
 # open the program /home/gabriel/raisim_ws/raisimLib/raisimUnity/linux/raisimUnity.x86_64
 
 
@@ -108,7 +109,7 @@ for update in range(1000000):
         loaded_graph.load_state_dict(torch.load(saver.data_dir+"/full_"+str(update)+'.pt')['actor_architecture_state_dict'])
 
         env.turn_on_visualization()
-        env.start_video_recording(datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S") + "policy_"+str(update)+'.mp4')
+        #env.start_video_recording(datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S") + "policy_"+str(update)+'.mp4')
 
         for step in range(n_steps):
             with torch.no_grad():
@@ -122,7 +123,7 @@ for update in range(1000000):
                 if wait_time > 0.:
                     time.sleep(wait_time)
 
-        env.stop_video_recording()
+        #env.stop_video_recording()
         env.turn_off_visualization()
 
         reward_analyzer.analyze_and_plot(update)
