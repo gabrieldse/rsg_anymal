@@ -15,13 +15,15 @@ import torch
 import datetime
 import argparse
 
+# conda 
+# python raisimGymTorch/env/envs/rsg_anymal/runner.py
 # python tester.py -w /home/gabriel/raisim_ws/raisimLib/raisimGymTorch/data/anymal_locomotion/2024-02-19-13-27-44/full_600.pt
 # python raisimGymTorch/env/envs/rsg_anymal/tester.py -w /home/gabriel/raisim_ws/raisimLib/raisimGymTorch/data/anymal_locomotion/2024-03-25-16-17-37/full_2100.pt
 # open the program /home/gabriel/raisim_ws/raisimLib/raisimUnity/linux/raisimUnity.x86_64
 
 
 # task specification
-task_name = "anymal_locomotion"
+task_name = "go1_locomotion"
 
 # configuration
 parser = argparse.ArgumentParser()
@@ -41,8 +43,14 @@ home_path = task_path + "/../../../../.."
 # config
 cfg = YAML().load(open(task_path + "/cfg.yaml", 'r'))
 
+#debug:
+#cfg2 = YAML().load(open(task_path + "/cfg2.yaml", 'r'))
+#cfg_terrain = YAML().load(open(task_path + "/cfg_terrain.yaml", 'r'))
+
 # create environment from the configuration file
 env = VecEnv(RaisimGymEnv(home_path + "/rsc", dump(cfg['environment'], Dumper=RoundTripDumper)))
+#debug:
+#envdbg = RaisimGymEnv(home_path + "/rsc", dump(cfg2['environment'], Dumper=RoundTripDumper))
 env.seed(cfg['seed'])
 
 # shortcuts
